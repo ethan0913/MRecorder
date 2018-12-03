@@ -55,6 +55,9 @@ import java.util.List;
 import ly.count.android.sdk.Countly;
 import ly.count.android.sdk.DeviceId;
 
+/**
+ * 注释
+ */
 public class MainActivity extends AppCompatActivity implements PermissionResultListener {
 
     private PermissionResultListener mPermissionResultListener;
