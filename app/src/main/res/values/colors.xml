@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="multiSelectColor">#503b3b3b</color>
+    <color name="transparent">#0000</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- Light theme color resources -->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FF5722</color>
+    <color name="windowBackground">#FFFFFF</color>
+    <color name="navigationBarColor">#000000</color>
+
+    <!-- Dark theme color resources -->
+    <color name="colorPrimary_dark">#202020</color>
+    <color name="colorPrimaryDark_dark">@android:color/black</color>
+    <color name="textColorPrimary_dark">@android:color/white</color>
+    <color name="textColorSecondary_dark">#fafafa</color>
+    <color name="colorAccent_dark">#009688</color>
+    <color name="windowBackground_dark">#212121</color>
+    <color name="navigationBarColor_dark">@android:color/black</color>
+    <color name="actionBarStyle_dark">@android:color/black</color>
+    <color name="actionMode_background_dark">#212121</color>
+
+    <!-- Black theme color resources -->
+    <color name="colorPrimary_black">@android:color/black</color>
+    <color name="colorPrimaryDark_black">@android:color/black</color>
+    <color name="textColorPrimary_black">@android:color/white</color>
+    <color name="textColorSecondary_black">#fafafa</color>
+    <color name="colorAccent_black">#009688</color>
+    <color name="windowBackground_black">@android:color/black</color>
+    <color name="navigationBarColor_black">@android:color/black</color>
+    <color name="actionBarStyle_black">@android:color/black</color>
+    <color name="popupBackground_black">#202020</color>
+    <color name="appBackground_black">@android:color/black</color>
+    <color name="dialog_background_black">#101010</color>
+    <color name="actionMode_background_black">#000000</color>
+    <!-- paint about  -->
+    <color name="color_grid_selector">#5FFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="orange">#FF9933</color>
+    <color name="gray">#5C5C5C</color>
+    <color name="gray_20">#20ffffff</color>
+</resources>

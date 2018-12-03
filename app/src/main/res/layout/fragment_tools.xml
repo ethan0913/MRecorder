@@ -1,0 +1,202 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.ethan.screencapture.fragment.ToolsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray_20"
+            android:orientation="vertical"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/tab_tools_fragment_layout_margin_bottom"
+                android:layout_marginLeft="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_marginRight="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_marginTop="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:id="@+id/video_editing"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/tab_tools_fragment_item_layout"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/tab_tools_fragment_layout_margin_right"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner_tools_fragment_item"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/durec_picture_tools_video_video" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_tools_fragment_item_video_edit"
+                        android:textSize="@dimen/tab_tools_fragment_item_layout_text_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/video_splicing"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/tab_tools_fragment_item_layout"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/tab_tools_fragment_layout_margin_left"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner_tools_fragment_item"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/durec_picture_tools_stitch_video" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_tools_fragment_item_video_stitch"
+                        android:textSize="@dimen/tab_tools_fragment_item_layout_text_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/tab_tools_fragment_layout_margin_bottom"
+                android:layout_marginLeft="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_marginRight="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_marginTop="@dimen/tab_tools_fragment_layout_margin_top"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:id="@+id/video_to_gif"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/tab_tools_fragment_item_layout"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/tab_tools_fragment_layout_margin_right"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner_tools_fragment_item"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/durec_picture_tools_video_to_gif" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_tools_fragment_item_video_change_gif"
+                        android:textSize="@dimen/tab_tools_fragment_item_layout_text_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/tab_tools_fragment_item_layout"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/tab_tools_fragment_layout_margin_left"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner_tools_fragment_item"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/durec_picture_tools_wifi_transfer" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_tools_fragment_item_wifi_transmission"
+                        android:textSize="@dimen/tab_tools_fragment_item_layout_text_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_marginLeft="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_marginRight="@dimen/tab_tools_fragment_layout_margin"
+                android:layout_marginTop="@dimen/tab_tools_fragment_layout_margin_top"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/tab_tools_fragment_item_layout"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/tab_tools_fragment_layout_margin_right"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner_tools_fragment_item"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/durec_picture_tools_edit_picture" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_tools_fragment_item_picture_edit"
+                        android:textSize="@dimen/tab_tools_fragment_item_layout_text_size" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/tab_tools_fragment_item_layout"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/tab_tools_fragment_layout_margin_left"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_corner_tools_fragment_item"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/durec_picture_tools_stitch_picture" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tab_tools_fragment_item_picture_stitch"
+                        android:textSize="@dimen/tab_tools_fragment_item_layout_text_size" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

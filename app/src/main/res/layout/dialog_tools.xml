@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/text_recorder_tool" />
+
+        <ImageView
+            android:id="@+id/exit_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/my_exit" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:alpha="0.1"
+        android:background="#000" />
+
+    <RelativeLayout
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/text_recorder_audio" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_switch_recorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textOff="Off"
+            android:textOn="On"
+            android:theme="@style/Switch" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/text_camera" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_switch_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textOff="Off"
+            android:textOn="On"
+            android:checked="false"
+            android:theme="@style/Switch" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/text_part_screen" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_switch_partscreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textOff="Off"
+            android:textOn="On"
+            android:theme="@style/Switch" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:background="@color/green"
+        android:visibility="gone"
+        android:id="@+id/rl_choose_region"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+      <TextView
+          android:layout_centerInParent="true"
+          android:id="@+id/tv_choose"
+          android:textColor="@color/red"
+          android:text="选择区域"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/text_show_touchs" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_switch_show_touch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textOff="Off"
+            android:textOn="On"
+            android:theme="@style/Switch" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="@string/text_water_mark" />
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/btn_switch_water_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textOff="Off"
+            android:textOn="On"
+            android:theme="@style/Switch" />
+    </RelativeLayout>
+
+</LinearLayout>

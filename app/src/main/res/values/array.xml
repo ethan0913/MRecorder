@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="fpsArray" translatable="false">
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+    </string-array>
+
+    <string-array name="resolutionsArray" translatable="false">
+        <item>640p</item>
+        <item>720p</item>
+        <item>1080p</item>
+        <item>1440p</item>
+    </string-array>
+
+    <string-array name="resolutionValues" translatable="false">
+        <item>360x640</item>
+        <item>720x1280</item>
+        <item>1080x1920</item>
+        <item>1440x2560</item>
+    </string-array>
+
+    <string-array name="bitrateArray" translatable="false">
+        <item>1.0 Mbit (Very low)</item>
+        <item>2.5 Mbit</item>
+        <item>3.5Mbit (low)</item>
+        <item>4.5 Mbit</item>
+        <item>6.8 Mbit (Good)</item>
+        <item>9.8 Mbit</item>
+        <item>12 Mbit (Excellent)</item>
+    </string-array>
+
+    <string-array name="bitratesValue" translatable="false">
+        <item>1048576</item>
+        <item>2621440</item>
+        <item>3670016</item>
+        <item>4718592</item>
+        <item>7130317</item>
+        <item>10276045</item>
+        <item>12582912</item>
+    </string-array>
+
+    <string-array name="filename" translatable="false">
+        <item>yyyyMMdd_hhmmss</item>
+        <item>ddMMyyyy_hhmmss</item>
+        <item>yyMMdd_hhmmss</item>
+        <item>ddMMyy_hhmmss</item>
+        <item>hhMMss_yyyymmdd</item>
+        <item>hhMMss_ddmmyyyy</item>
+        <item>hhMMss_yymmdd</item>
+        <item>hhMMss_ddmmyy</item>
+    </string-array>
+
+    <string-array name="filename_values" translatable="false">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+    </string-array>
+
+    <string-array name="themeArray">
+        <item>Light</item>
+        <item>Dark</item>
+        <item>Black</item>
+    </string-array>
+
+    <string-array name="themeValues">
+        <item>light_theme</item>
+        <item>dark_theme</item>
+        <item>black_theme</item>
+    </string-array>
+</resources>

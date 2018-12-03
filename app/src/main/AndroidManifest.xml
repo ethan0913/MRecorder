@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ethan.screencapture">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="com.orpheusdroid.screenrecorder.TOGGLETOUCHES" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
+    <application
+        android:name="com.ethan.screencapture.application.ScreenCaptureApplication"
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Light">
+        <activity
+            android:name="com.ethan.screencapture.activity.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcut" />
+        </activity>
+
+        <service
+            android:name="com.ethan.screencapture.service.RecorderService"
+            android:exported="false" />
+        <service android:name="org.openudid.OpenUDID_service">
+            <intent-filter>
+                <action android:name="org.openudid.GETUDID" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.ethan.screencapture.service.FloatBallService"
+            android:persistent="true" />
+
+        <activity
+            android:name="com.ethan.screencapture.activity.AboutActivity"
+            android:label="@string/about_activity_label" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="com.ethan.screencapture.PrivacyPolicy"
+            android:label="Privacy Policy" />
+        <activity android:name="com.ethan.screencapture.activity.EditVideoActivity" />
+        <activity
+            android:name="com.ethan.screencapture.activity.GetPermissionActivity"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.ethan.screencapture.activity.PreviewPictureActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Themes.TimerAlertDialogScreenTheme" />
+        <activity android:name="com.ethan.screencapture.activity.VideoChoose" />
+        <activity
+            android:name="com.ethan.screencapture.activity.VideoEditActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="com.ethan.screencapture.activity.VideoEditSpeedActivity"></activity>
+    </application>
+
+</manifest>

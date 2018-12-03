@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:background="@color/gray"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/durec_float_center_rec_pressed" />
+
+        <ImageView
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/my_exit" />
+
+        <TextView
+            android:id="@+id/tv_recording"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/text_recorder"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="3dp"
+            android:layout_toRightOf="@+id/tv_recording"
+            android:format="00:00"
+            android:textColor="#FFFF"
+            android:textSize="12dp"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/controls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/stop"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_start_record_bg" />
+
+        <!-- <View
+             android:id="@+id/divider1"
+             android:layout_width="1dp"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="20dp"
+             android:layout_marginTop="20dp"
+             android:background="@android:color/darker_gray" />-->
+
+        <ImageButton
+            android:id="@+id/pause_resume"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_pause_record_bg"
+            android:visibility="gone" />
+
+        <!--    <View
+                android:id="@+id/divider2"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@android:color/darker_gray" />-->
+
+
+        <ImageButton
+            android:id="@+id/shot"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_screen_shot_bg" />
+        <!--
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@android:color/darker_gray" />-->
+
+        <ImageButton
+            android:id="@+id/home"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/durec_float_rec_videos_1" />
+
+        <!-- <View
+             android:layout_width="1dp"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="20dp"
+             android:layout_marginTop="20dp"
+             android:background="@android:color/darker_gray" />-->
+
+        <ImageButton
+            android:id="@+id/setting"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_tool_bg" />
+
+        <!-- <View
+             android:id="@+id/divider3"
+             android:layout_width="1dp"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="20dp"
+             android:layout_marginTop="20dp"
+             android:background="@android:color/darker_gray" />-->
+
+        <ImageButton
+            android:id="@+id/paint"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:scaleType="centerInside"
+            android:src="@drawable/durec_picture_edit_brush_icon_press" />
+
+
+        <ImageButton
+            android:id="@+id/camera"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_camera"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_paint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:visibility="gone">
+
+        <GridView
+            android:id="@+id/my_gridView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:columnWidth="35dp"
+            android:gravity="center"
+            android:horizontalSpacing="5dp"
+            android:listSelector="@color/color_grid_selector"
+            android:numColumns="6"
+            android:stretchMode="spacingWidth"
+            android:verticalSpacing="8dp">
+
+        </GridView>
+    </FrameLayout>
+</LinearLayout>
