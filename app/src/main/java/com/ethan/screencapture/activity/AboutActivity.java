@@ -88,7 +88,7 @@ public class AboutActivity extends AppCompatActivity {
             copyRight.append(getResources().getString(R.string.app_name))
                     .append(" V")
                     .append(BuildConfig.VERSION_NAME);
-            //set the text as html to get copyright symbol
+            //set   www  the text as html to get copyright symbol
             appVersion.setText(fromHtml(copyRight.toString()));
         }
     }
