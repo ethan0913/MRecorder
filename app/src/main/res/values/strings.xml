@@ -81,6 +81,7 @@
     <string name="picFragment_title">Photos</string>
     <string name="tab_tools_title">Tools</string>
     <string name="storage_permission_denied_message">Storage permission denied</string>
+    <string name="video_list_permission_denied_message">存储权限被拒绝</string>
     <string name="video_list_no_video_message">No videos available</string>
     <string name="alert_title_create_folder">Create Folder</string>
     <string name="alert_message_create_folder">Enter folder name</string>

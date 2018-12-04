@@ -2,6 +2,7 @@ package com.huxq17.floatball.libarary;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.view.Gravity;
 import android.view.WindowManager;
 
@@ -17,7 +18,12 @@ public class FloatBallUtil {
         layoutParams.setTitle("jiayue_switcher_view");
         layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH
                 | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
-        layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         /*if (listenBackEvent) {
             layoutParams.flags = layoutParams.flags & ~WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
         }
@@ -49,7 +55,12 @@ public class FloatBallUtil {
         layoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;
         layoutParams.gravity = Gravity.LEFT | Gravity.TOP;
-        layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            layoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            layoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
       /*  if (context == null || !(context instanceof Activity)) {
             final int sdkInt = Build.VERSION.SDK_INT;
             if (sdkInt < Build.VERSION_CODES.KITKAT) {

@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,6 +18,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Binder;
+import android.os.Build;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
@@ -178,7 +181,21 @@ public class FloatBallService extends Service implements RecorderService.Recorde
         mFloatballManager.show();
         RecorderService.setOnRecorderStateChangeListener(this);
         createFloatingControl();
-        startForeground(1, new Notification());
+
+        Notification.Builder builder =new Notification.Builder(this);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            String channelID = "9527";
+            String channelName = "james bond";
+            NotificationChannel channel = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_HIGH);
+            NotificationManager manager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+            manager.createNotificationChannel(channel);
+            builder.setChannelId(channelID);
+        }
+
+        Notification notification = builder.build();
+
+
+        startForeground(1, notification);
 
         //add by qujq 2018/4/9 注册camera setting的广播
         registerCameraBroadcastReceiver();
@@ -226,7 +243,12 @@ public class FloatBallService extends Service implements RecorderService.Recorde
         mToolDlg = new Dialog(this, R.style.dialog);
         mToolDlg.setContentView(R.layout.dialog_tools);
         mToolDlg.setCancelable(false);
-        mToolDlg.getWindow().setType((WindowManager.LayoutParams.TYPE_SYSTEM_ALERT));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mToolDlg.getWindow().setType((WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY));
+        }else {
+            mToolDlg.getWindow().setType((WindowManager.LayoutParams.TYPE_SYSTEM_ALERT));
+        }
 
         //Pause/Resume doesnt work below SDK version 24. Remove them
             pauseResumeIB.setVisibility(View.GONE);
@@ -244,7 +266,12 @@ public class FloatBallService extends Service implements RecorderService.Recorde
         // From API26, TYPE_PHONE depricated. Use TYPE_APPLICATION_OVERLAY for O
 //        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
 //            params.type = WindowManager.LayoutParams.TYPE_PHONE;
-        params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            params.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            params.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         //Initial position of the floating controls
         params.gravity = Gravity.TOP | Gravity.CENTER_HORIZONTAL;
         params.x = 0;
@@ -564,7 +591,12 @@ public class FloatBallService extends Service implements RecorderService.Recorde
                                     }
                                 });
                 AlertDialog alert = builder.create();
-                alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    alert.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+                }else {
+                    alert.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+                }
                 alert.show();
                 mFloatballManager.closeMenu();
             }
@@ -636,7 +668,12 @@ public class FloatBallService extends Service implements RecorderService.Recorde
      */
     private void createBackGroundView() {
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+//        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
@@ -659,7 +696,11 @@ public class FloatBallService extends Service implements RecorderService.Recorde
      */
     private void createDrawingView() {
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
@@ -680,7 +721,11 @@ public class FloatBallService extends Service implements RecorderService.Recorde
      */
     private void createToolbarView() {
         mToolbarLayoutParams = new WindowManager.LayoutParams();
-        mToolbarLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mToolbarLayoutParams.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            mToolbarLayoutParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         mToolbarLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
@@ -774,7 +819,12 @@ public class FloatBallService extends Service implements RecorderService.Recorde
         }
 
         dialogWindow.setAttributes(lp);
-        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }else {
+            dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        }
         dialog.show();
     }
 
@@ -783,7 +833,11 @@ public class FloatBallService extends Service implements RecorderService.Recorde
      */
     private void createSwitcherView() {
         final WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
@@ -1443,7 +1497,11 @@ public class FloatBallService extends Service implements RecorderService.Recorde
 
     private void createRegionBgView(){
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
@@ -1463,7 +1521,11 @@ public class FloatBallService extends Service implements RecorderService.Recorde
     }
     private void createRegionDrawingView(){
         WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            lp.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY;
+        }else {
+            lp.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+        }
         lp.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_FULLSCREEN
                 | WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
