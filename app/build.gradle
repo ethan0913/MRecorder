@@ -2,9 +2,9 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.0"
+    buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "com.lenovo.screencapture"
+        applicationId "com.ethan.screencapture"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
@@ -33,7 +33,7 @@ dependencies {
     implementation 'ly.count.android:sdk:17.05'
     implementation 'life.knowledge4:k4l-video-trimmer:1.0'
     implementation project(':library')
-    compile project(path: ':image')
+    implementation project(path: ':image')
     implementation files('libs/universal-image-loader-1.9.5.jar')
     implementation project(':joevideolib')
 }
