@@ -118,7 +118,11 @@ public class RecorderService extends Service implements ShakeEventManager.ShakeL
         dialog.setSavedFileName(getString(
                 R.string.notification_recording_finished_text,
                 uri.getPath()));
-        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }else {
+            dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_PHONE);
+        }
         dialog.show();
     }
 
@@ -790,6 +794,10 @@ public class RecorderService extends Service implements ShakeEventManager.ShakeL
         mProgressDialog.setMax(100);
         mProgressDialog.setCancelable(false);
         mProgressDialog.setCanceledOnTouchOutside(false);
-        mProgressDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mProgressDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }else {
+            mProgressDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_PHONE);
+        }
     }
 }

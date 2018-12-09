@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -157,7 +158,11 @@ public class VideoEditActivity extends AppCompatActivity implements View.OnClick
         mProgressDialog.setMax(100);
         mProgressDialog.setCancelable(false);
         mProgressDialog.setCanceledOnTouchOutside(false);
-        mProgressDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            mProgressDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        }else {
+            mProgressDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_PHONE);
+        }
         mVideoView = findViewById(R.id.video_edit_video);
         mVideoView.setOnTouchListener(new View.OnTouchListener() {
             @Override
