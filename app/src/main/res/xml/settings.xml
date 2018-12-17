@@ -52,20 +52,21 @@
             android:summary="Enter a prefix for the saved file name"
             android:title="@string/preference_filename_prefix_title" />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/prefs_category_analytics_title">
-        <CheckBoxPreference
-            android:title="@string/preference_crash_reporting_title"
-            android:summary="@string/preference_crash_reporting_summary"
-            android:key="@string/preference_crash_reporting_key"
-            android:defaultValue="false" />
-        <CheckBoxPreference
-            android:title="@string/preference_anonymous_statistics_title"
-            android:summary="@string/preference_anonymous_statistics_summary"
-            android:key="@string/preference_anonymous_statistics_key"
-            android:defaultValue="false"
-            android:dependency="@string/preference_crash_reporting_key"/>
-    </PreferenceCategory>
+    <!--去除匿名统计，和崩溃报告 ethan-->
+    <!--<PreferenceCategory-->
+        <!--android:title="@string/prefs_category_analytics_title">-->
+        <!--<CheckBoxPreference-->
+            <!--android:title="@string/preference_crash_reporting_title"-->
+            <!--android:summary="@string/preference_crash_reporting_summary"-->
+            <!--android:key="@string/preference_crash_reporting_key"-->
+            <!--android:defaultValue="false" />-->
+        <!--<CheckBoxPreference-->
+            <!--android:title="@string/preference_anonymous_statistics_title"-->
+            <!--android:summary="@string/preference_anonymous_statistics_summary"-->
+            <!--android:key="@string/preference_anonymous_statistics_key"-->
+            <!--android:defaultValue="false"-->
+            <!--android:dependency="@string/preference_crash_reporting_key"/>-->
+    <!--</PreferenceCategory>-->
     <PreferenceCategory
         android:title="@string/prefs_category_theme_title" >
         <ListPreference
@@ -91,11 +92,12 @@
             <!--android:max="200"-->
             <!--android:persistent="true"-->
             <!--/>-->
-        <CheckBoxPreference
+        <!--去除下载显示触摸组件 ethan-->
+        <!--<CheckBoxPreference
             android:title="@string/preference_show_touch_title"
             android:summary="@string/preference_show_touch_summary"
             android:key="@string/preference_show_touch_key"
-            android:defaultValue="false" />
+            android:defaultValue="false" />-->
 
         <CheckBoxPreference
             android:title="@string/preference_enable_target_app_title"
@@ -110,22 +112,23 @@
             android:defaultValue="none"
             android:dependency="@string/preference_enable_target_app_key"/>
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/prefs_category_experimental_title"
-        >
-        <CheckBoxPreference
-            android:title="@string/preference_save_gif_title"
-            android:summary="@string/preference_save_gif_summary"
-            android:key="@string/preference_save_gif_key"
-            android:defaultValue="false"
-            />
-        <CheckBoxPreference
-            android:title="@string/preference_shake_gesture_title"
-            android:summary="@string/preference_shake_gesture_summary"
-            android:key="@string/preference_shake_gesture_key"
-            android:defaultValue="false"
-            />
-    </PreferenceCategory>
+    <!--去掉gif 和 摇动开始/停止 录音-->
+    <!--<PreferenceCategory-->
+        <!--android:title="@string/prefs_category_experimental_title"-->
+        <!--&gt;-->
+        <!--<CheckBoxPreference-->
+            <!--android:title="@string/preference_save_gif_title"-->
+            <!--android:summary="@string/preference_save_gif_summary"-->
+            <!--android:key="@string/preference_save_gif_key"-->
+            <!--android:defaultValue="false"-->
+            <!--/>-->
+        <!--<CheckBoxPreference-->
+            <!--android:title="@string/preference_shake_gesture_title"-->
+            <!--android:summary="@string/preference_shake_gesture_summary"-->
+            <!--android:key="@string/preference_shake_gesture_key"-->
+            <!--android:defaultValue="false"-->
+            <!--/>-->
+    <!--</PreferenceCategory>-->
     <PreferenceCategory android:title="@string/prefs_category_tools_title">
         <CheckBoxPreference
             android:defaultValue="false"

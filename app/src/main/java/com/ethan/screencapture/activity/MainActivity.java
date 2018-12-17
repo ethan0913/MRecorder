@@ -218,7 +218,8 @@ public class MainActivity extends AppCompatActivity implements PermissionResultL
         adapter.addFragment(new SettingsPreferenceFragment(), getString(R.string.tab_settings_title));
         adapter.addFragment(new VideosListFragment(), getString(R.string.tab_videos_title));
         adapter.addFragment(new ScreenShotFragment(), getString(R.string.picFragment_title));
-        adapter.addFragment(new ToolsFragment(), getString(R.string.tab_tools_title));
+//      暂时去掉视频图片编辑功能
+//        adapter.addFragment(new ToolsFragment(), getString(R.string.tab_tools_title));
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(2);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

@@ -47,8 +47,9 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Sh
     SharedPreferences prefs;
     private CheckBoxPreference recaudio;
     private CheckBoxPreference floatingControl;
-    private CheckBoxPreference crashReporting;
-    private CheckBoxPreference usageStats;
+//    去除匿名统计，和崩溃报告 ethan
+//    private CheckBoxPreference crashReporting;
+//    private CheckBoxPreference usageStats;
     private CheckBoxPreference camera;
     private FolderChooser dirChooser;
     private MainActivity activity;
@@ -83,8 +84,9 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Sh
         dirChooser = (FolderChooser) findPreference(getString(R.string.savelocation_key));
         floatingControl = (CheckBoxPreference) findPreference(getString(R.string.preference_floating_control_key));
         CheckBoxPreference touchPointer = (CheckBoxPreference) findPreference("touch_pointer");
-        crashReporting = (CheckBoxPreference) findPreference(getString(R.string.preference_crash_reporting_key));
-        usageStats = (CheckBoxPreference) findPreference(getString(R.string.preference_anonymous_statistics_key));
+//        去除匿名统计，和崩溃报告 ethan
+//        crashReporting = (CheckBoxPreference) findPreference(getString(R.string.preference_crash_reporting_key));
+//        usageStats = (CheckBoxPreference) findPreference(getString(R.string.preference_anonymous_statistics_key));
         camera = (CheckBoxPreference)findPreference(getString(R.string.preference_camera_key));
         //Set previously chosen directory as initial directory
         dirChooser.setCurrentDir(getValue(getString(R.string.savelocation_key), defaultSaveLoc));
@@ -108,11 +110,11 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Sh
         //If floating controls is checked, check for system windows permission
         if (floatingControl.isChecked())
             requestSystemWindowsPermission();
-
-        if(touchPointer.isChecked()){
-            if (!hasPluginInstalled())
-                touchPointer.setChecked(false);
-        }
+//        去除显示下载触控应用
+//        if(touchPointer.isChecked()){
+//            if (!hasPluginInstalled())
+//                touchPointer.setChecked(false);
+//        }
 
         //set callback for directory change
         dirChooser.setOnDirectoryClickedListerner(this);
@@ -225,23 +227,25 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Sh
             case R.string.preference_floating_control_title:
                 requestSystemWindowsPermission();
                 break;
-            case R.string.preference_show_touch_title:
-                CheckBoxPreference showTouchCB = (CheckBoxPreference)pref;
-                if (showTouchCB.isChecked() && !hasPluginInstalled()){
-                    showTouchCB.setChecked(false);
-                    showDownloadAlert();
-                }
-                break;
-            case R.string.preference_crash_reporting_title:
-                CheckBoxPreference crashReporting = (CheckBoxPreference)pref;
-                CheckBoxPreference anonymousStats = (CheckBoxPreference) findPreference(getString(R.string.preference_anonymous_statistics_key));
-                if(!crashReporting.isChecked())
-                    anonymousStats.setChecked(false);
-                startAnalytics();
-                break;
-            case R.string.preference_anonymous_statistics_title:
-                startAnalytics();
-                break;
+//                  去除下载显示触摸组件 ethan
+//            case R.string.preference_show_touch_title:
+//                CheckBoxPreference showTouchCB = (CheckBoxPreference)pref;
+//                if (showTouchCB.isChecked() && !hasPluginInstalled()){
+//                    showTouchCB.setChecked(false);
+//                    showDownloadAlert();
+//                }
+//                break;
+//                去除匿名统计，和崩溃报告 ethan
+//            case R.string.preference_crash_reporting_title:
+//                CheckBoxPreference crashReporting = (CheckBoxPreference)pref;
+//                CheckBoxPreference anonymousStats = (CheckBoxPreference) findPreference(getString(R.string.preference_anonymous_statistics_key));
+//                if(!crashReporting.isChecked())
+//                    anonymousStats.setChecked(false);
+//                startAnalytics();
+//                break;
+//            case R.string.preference_anonymous_statistics_title:
+//                startAnalytics();
+//                break;
             case R.string.preference_theme_title:
                 activity.recreate();
                 break;
@@ -289,7 +293,7 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Sh
                 })
                 .create().show();
     }
-
+    //判断是否安装了触控应用
     private boolean hasPluginInstalled(){
         PackageManager pm = getActivity().getPackageManager();
         try {
@@ -424,12 +428,14 @@ public class SettingsPreferenceFragment extends PreferenceFragment implements Sh
 
     @Override
     public void updateAnalyticsSettings(Const.analytics analytics) {
-        switch (analytics){
+        switch (analytics) {
             case CRASHREPORTING:
-                crashReporting.setChecked(true);
+//                去除匿名统计，和崩溃报告 ethan
+//                crashReporting.setChecked(true);
                 break;
             case USAGESTATS:
-                usageStats.setChecked(true);
+//                去除匿名统计，和崩溃报告 ethan
+//                usageStats.setChecked(true);
                 break;
         }
     }
